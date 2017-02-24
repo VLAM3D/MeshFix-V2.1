@@ -39,14 +39,14 @@ bool joinClosestComponents(Basic_TMesh *tin)
 	{
 		i++;
 		triList.appendHead(t);
-		t->info = (void *)i;
+		t->info = reinterpret_cast<void*>(static_cast<j_voidint>(i));
 
 		while (triList.numels())
 		{
 			t = (Triangle *)triList.popHead();
-			if ((s = t->t1()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = (void *)i; }
-			if ((s = t->t2()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = (void *)i; }
-			if ((s = t->t3()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = (void *)i; }
+			if ((s = t->t1()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = reinterpret_cast<void*>(static_cast<j_voidint>(i)); }
+			if ((s = t->t2()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = reinterpret_cast<void*>(static_cast<j_voidint>(i)); }
+			if ((s = t->t3()) != NULL && s->info == NULL) { triList.appendHead(s); s->info = reinterpret_cast<void*>(static_cast<j_voidint>(i)); }
 		}
 	}
 
@@ -122,7 +122,7 @@ char *createFilename(const char *iname, const char *subext, char *oname, const c
 {
 	static char tname[2048];
 	strcpy(tname, iname);
-	for (int n = strlen(tname) - 1; n>0; n--) if (tname[n] == '.') { tname[n] = '\0'; break; }
+	for (int n = static_cast<int>(strlen(tname)) - 1; n>0; n--) if (tname[n] == '.') { tname[n] = '\0'; break; }
 	sprintf(oname, "%s%s%s", tname, subext, newextension);
 	return oname;
 }

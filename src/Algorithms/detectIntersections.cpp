@@ -206,7 +206,7 @@ int Basic_TMesh::selectIntersectingTriangles(UINT16 tris_per_cell, bool justprop
 void jitterIncrease(char *f)
 {
 	bool isnegative = (f[0] == '-');
-	int l = strlen(f);
+	int l = static_cast<int>(strlen(f));
 
 	if (isnegative)
 	{
@@ -226,7 +226,7 @@ void jitterIncrease(char *f)
 void jitterDecrease(char *f)
 {
 	bool isnegative = (f[0] == '-');
-	int l = strlen(f);
+	int l = static_cast<int>(strlen(f));
 
 	if (isnegative)
 	{

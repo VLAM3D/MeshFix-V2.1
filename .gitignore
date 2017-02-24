@@ -9,3 +9,11 @@
 *.opensdf
 *.pdb
 *.props
+*.opendb
+*.db
+
+#Specifics
+vs/MeshFix_obj64/
+vs/kernel_obj64/
+vs/obj64/
+vs/tmesh_obj64/

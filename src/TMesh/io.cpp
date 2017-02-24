@@ -900,7 +900,7 @@ int Basic_TMesh::saveVerTri(const char *fname)
  {
   i1 = TMESH_TO_INT(t->v1()->x); i2 = TMESH_TO_INT(t->v2()->x); i3 = TMESH_TO_INT(t->v3()->x);
   t1 = t->t1(); t2 = t->t2(); t3 = t->t3();
-  a1 = (t1)?((long int)(t1->info)):(0); a2 = (t2)?((long int)(t2->info)):(0); a3 = (t3)?((long int)(t3->info)):(0);
+  a1 = (t1)?((j_voidint)(t1->info)):(0); a2 = (t2)?((j_voidint)(t2->info)):(0); a3 = (t3)?((j_voidint)(t3->info)):(0);
   fprintf(fpt,"%d %d %d %d %d %d\n",i1, i2, i3, a1, a2, a3);
  }
  fclose(fpt);
